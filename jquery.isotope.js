@@ -408,8 +408,10 @@
 
       // bind resize method
       if ( this.options.resizable ) {
-        $window.bind( 'smartresize.isotope', function() {
-          instance.resize();
+        $window.bind( 'smartresize.isotope', function(e) {
+          if(!e.target.tagName){
+            instance.resize();
+          }
         });
       }
 
